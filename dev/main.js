@@ -1,9 +1,7 @@
 import App from './App';
 import { createApp } from 'vue';
-import PreviewHtml from '@/preview-html.js';
 // import VueMarkdownEditor from '@/base-editor';
 import VueMarkdownEditor from '@/codemirror-editor';
-// import Preview from '@/preview';
 import createEmojiPlugin from '@/plugins/emoji/full';
 import '@/plugins/emoji/emoji.css';
 import createKatexPlugin from '@/plugins/katex/cdn';
@@ -14,9 +12,7 @@ import createCopyCodePlugin from '@/plugins/copy-code/index';
 import '@/plugins/copy-code/copy-code.css';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import '@/plugins/highlight-lines/highlight-lines.css';
-import createMermaidPlugin from '@/plugins/mermaid/cdn';
-
-import createCreateCopyCodePreview from '@/plugins/copy-code/preview';
+import createMermaidPlugin from '@/plugins/mermaid/npm';
 
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
@@ -47,8 +43,6 @@ import 'codemirror/lib/codemirror.css';
 
 const app = createApp(App);
 
-PreviewHtml.use(createCreateCopyCodePreview());
-
 VueMarkdownEditor.lang.use('en-US', enUS);
 
 // VueMarkdownEditor.use(githubTheme, {
@@ -70,12 +64,26 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createLineNumberPlugin())
   .use(createCopyCodePlugin())
   .use(createHighLinesPlugin())
-  .use(createMermaidPlugin());
+  .use(
+    createMermaidPlugin({
+      mermaidInitializeOptions: {
+        theme: 'base',
+        themeVariables: {
+          background: '#ffffff',
+          primaryColor: '#eef2ff',
+          primaryTextColor: '#1f2937',
+          primaryBorderColor: '#94a3b8',
+          lineColor: '#64748b',
+          textColor: '#1f2937',
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Microsoft YaHei, sans-serif',
+        },
+      },
+    })
+  );
 
 VueMarkdownEditor.Codemirror = Codemirror;
 
 app.use(VueMarkdownEditor);
-app.use(PreviewHtml);
-// app.use(Preview);
 
 app.mount('#app');

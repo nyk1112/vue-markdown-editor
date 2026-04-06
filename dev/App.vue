@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="demo-page">
+    <h2 class="demo-title">VMd 编辑器 Demo</h2>
     <v-md-editor
       v-model="text"
       height="500px"
@@ -12,22 +13,16 @@
       @copy-code-success="handleCopyCodeSuccess"
       ref="editor"
     />
-    <!-- <v-md-preview-html
-      :html="html"
-      preview-class="vuepress-markdown-body"
-    /> -->
   </div>
 </template>
 
 <script>
 import text from './text';
-import html from './html';
 
 export default {
   data() {
     return {
       text,
-      html,
     };
   },
   methods: {
@@ -51,3 +46,31 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.demo-page {
+  padding: 16px;
+}
+
+.demo-title {
+  margin: 0 0 12px;
+}
+
+.v-md-editor-preview {
+  pre.v-md-mermaid {
+    background: transparent;
+    padding: 0;
+  }
+
+  pre.v-md-mermaid svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+  }
+}
+</style>
