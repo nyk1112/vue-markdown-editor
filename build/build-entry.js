@@ -17,7 +17,7 @@ import Component from './${filename}.vue';${
   !isPreviewHtml(filename) ? "\nimport xss from '@/utils/xss/index';" : ''
 }
 // font css
-import '@/assets/css/font';
+import '@/assets/css/font.css';
 
 const version = '${version}';
 

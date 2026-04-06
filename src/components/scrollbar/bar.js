@@ -1,6 +1,7 @@
 // Modified from https://github.com/ElemeFE/element/tree/dev/packages/scrollbar
 
 import { renderThumbStyle, BAR_MAP } from './util';
+import { h } from 'vue';
 
 /* istanbul ignore next */
 export default {
@@ -25,19 +26,21 @@ export default {
   render() {
     const { size, move, bar } = this;
 
-    return (
-      <div
-        class={['scrollbar__bar', 'is-' + bar.key]}
-        onMousedown={this.clickTrackHandler}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div
-          ref="thumb"
-          class="scrollbar__thumb"
-          onMousedown={this.clickThumbHandler}
-          style={renderThumbStyle({ size, move, bar })}
-        ></div>
-      </div>
+    return h(
+      'div',
+      {
+        class: ['scrollbar__bar', 'is-' + bar.key],
+        onMousedown: this.clickTrackHandler,
+        onClick: (e) => e.stopPropagation(),
+      },
+      [
+        h('div', {
+          ref: 'thumb',
+          class: 'scrollbar__thumb',
+          onMousedown: this.clickThumbHandler,
+          style: renderThumbStyle({ size, move, bar }),
+        }),
+      ]
     );
   },
 

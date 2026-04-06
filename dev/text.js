@@ -1,62 +1,27 @@
 /* eslint-disable */
 
-export default `<h1 align="center">Markdown Editor built on Vue</h1>
+export default `# 欢迎使用 VMd Editor
 
-<p align="center">
-  <a href="https://npmcharts.com/compare/@kangc/v-md-editor?minimal=true"><img src="https://img.shields.io/npm/dm/@kangc/v-md-editor.svg?sanitize=true" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/v/@kangc/v-md-editor.svg?sanitize=true" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
-</p>
+这是开发环境的默认示例内容，你可以直接在这里输入 Markdown。
 
-## Links
+## 快速示例
 
-- [Demo](https://code-farmer-i.github.io/vue-markdown-editor/examples/base-editor.html)
-- [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
-- [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
+- 支持 **加粗**、*斜体*、~~删除线~~
+- 支持列表、表格、代码块、任务列表
+- 支持目录、复制代码、数学公式与 mermaid
 
-## Install
-
-\`\`\`bash
-# use npm
-npm i @kangc/v-md-editor -S
-
-# use yarn
-yarn add @kangc/v-md-editor
-\`\`\`
-
-## Quick Start
+## 代码示例
 
 \`\`\`js
-import Vue from 'vue';
-import VueMarkdownEditor from '@kangc/v-md-editor';
-import '@kangc/v-md-editor/lib/style/base-editor.css';
-import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
-
-VueMarkdownEditor.use(vuepressTheme);
-
-Vue.use(VueMarkdownEditor);
+const hello = 'v-md-editor';
+console.log(hello);
 \`\`\`
 
-## Usage
+## 任务列表
 
-\`\`\`html
-<template>
-  <v-md-editor v-model="text" height="400px"></v-md-editor>
-</template>
+- [x] 完成 Vite 迁移
+- [x] 修复导入与 require.context 兼容问题
+- [ ] 按需继续优化 Sass 警告
 
-<script>
-  export default {
-    data() {
-      return {
-        text: '',
-      };
-    },
-  };
-</script>
-\`\`\`
-
-## Refrence
-
-- [ElementUi Scrollbar Component](https://github.com/ElemeFE/element/tree/dev/packages/scrollbar)
-- [vuepress-plugin-container](https://vuepress.github.io/zh/plugins/container/)
+> 你可以把这段内容替换成任意业务文档模板。
 `;

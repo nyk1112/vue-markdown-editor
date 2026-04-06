@@ -4,18 +4,16 @@ import PreviewHtml from '@/preview-html.js';
 // import VueMarkdownEditor from '@/base-editor';
 import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
-import githubTheme from '@/theme/github/index';
-
 import createEmojiPlugin from '@/plugins/emoji/full';
-import '@/plugins/emoji/emoji';
+import '@/plugins/emoji/emoji.css';
 import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
-import '@/plugins/todo-list/todo-list';
+import '@/plugins/todo-list/todo-list.css';
 import createLineNumberPlugin from '@/plugins/line-number/index';
 import createCopyCodePlugin from '@/plugins/copy-code/index';
-import '@/plugins/copy-code/copy-code';
+import '@/plugins/copy-code/copy-code.css';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
-import '@/plugins/highlight-lines/highlight-lines';
+import '@/plugins/highlight-lines/highlight-lines.css';
 import createMermaidPlugin from '@/plugins/mermaid/cdn';
 
 import createCreateCopyCodePreview from '@/plugins/copy-code/preview';

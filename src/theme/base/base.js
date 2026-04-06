@@ -28,7 +28,7 @@ export default function createBaseTheme({ toc, link, attrs } = {}) {
       leftDelimiter: '{{{',
       rightDelimiter: '}}}',
       ...attrs,
-      allowedAttributes: ['width', 'height', ...attrs?.allowedAttributes],
+      allowedAttributes: ['width', 'height', ...(attrs?.allowedAttributes || [])],
     })
     .use(markdownItHeadingTag, {
       getMarks(title, level, unique) {

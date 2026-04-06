@@ -17,16 +17,21 @@
     <div id="app">
       <v-md-editor height="400px"></v-md-editor>
     </div>
-    <script src="http://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script src="../lib/base-editor.js"></script>
     <script src="../lib/theme/vuepress.js"></script>
     <script>
       window.onload = function () {
-        const vm = new Vue({
-          el: '#app',
-        });
+        const app = Vue.createApp({});
 
-        console.log(vm);
+        if (window.VMdEditorVuepressTheme) {
+          window.VMdEditor.use(window.VMdEditorVuepressTheme.default || window.VMdEditorVuepressTheme);
+        }
+
+        app.use(window.VMdEditor);
+        app.mount('#app');
+
+        console.log(app);
       };
     </script>
   </body>

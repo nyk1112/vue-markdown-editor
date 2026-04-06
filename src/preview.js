@@ -2,7 +2,7 @@
 import Component from './preview.vue';
 import xss from '@/utils/xss/index';
 // font css
-import '@/assets/css/font';
+import '@/assets/css/font.css';
 
 const version = '2.3.18';
 

@@ -28,6 +28,19 @@ npm i @kangc/v-md-editor@next -S
 yarn add @kangc/v-md-editor@next
 ```
 
+## Development
+
+```bash
+# install dependencies
+npm install
+
+# start local dev server (Vite)
+npm run dev
+
+# build library outputs to es/ and lib/
+npm run build
+```
+
 ## Quick Start
 
 ```js
