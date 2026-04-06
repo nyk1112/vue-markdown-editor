@@ -14,10 +14,7 @@ import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import '@/plugins/highlight-lines/highlight-lines.css';
 import createMermaidPlugin from '@/plugins/mermaid/npm';
 
-import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
-
-import Prism from 'prismjs';
 
 // codemirror 编辑器的相关资源
 import Codemirror from 'codemirror';
@@ -44,19 +41,6 @@ import 'codemirror/lib/codemirror.css';
 const app = createApp(App);
 
 VueMarkdownEditor.lang.use('en-US', enUS);
-
-// VueMarkdownEditor.use(githubTheme, {
-//   codeHighlightExtensionMap: {
-//     vue: 'xml',
-//   },
-// });
-VueMarkdownEditor.use(vuepressTheme, {
-  Prism,
-  codeHighlightExtensionMap: {
-    vue: 'markup',
-  },
-});
-// Preview.use(githubTheme);
 
 VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())

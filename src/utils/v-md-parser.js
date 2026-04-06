@@ -3,6 +3,7 @@ import Lang from '@/utils/lang';
 export class VMdParser {
   constructor() {
     this.lang = new Lang();
+    this.markdownExtenders = [];
   }
 
   defaultMarkdownLoader(text) {
@@ -21,14 +22,24 @@ export class VMdParser {
 
   theme(themeConfig) {
     this.themeConfig = themeConfig;
+
+    const { markdownParser } = this.themeConfig || {};
+
+    if (!markdownParser) return;
+
+    this.markdownExtenders.forEach((extender) => {
+      extender(markdownParser);
+    });
   }
 
   extendMarkdown(extender) {
-    if (!this.themeConfig) {
-      return console.error('Please use theme before using plugins');
-    }
+    if (typeof extender !== 'function') return;
 
-    const { markdownParser } = this.themeConfig;
+    this.markdownExtenders.push(extender);
+
+    const { markdownParser } = this.themeConfig || {};
+
+    if (!markdownParser) return;
 
     extender(markdownParser);
   }
